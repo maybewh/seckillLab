@@ -5,7 +5,6 @@ import com.admin.bean.SeckillOrder;
 import com.admin.bean.User;
 import com.admin.mapper.OrderMapper;
 import com.admin.redis.OrderKey;
-import com.admin.redis.RedisService;
 import com.admin.vo.GoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

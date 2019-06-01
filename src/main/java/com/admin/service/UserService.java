@@ -3,7 +3,6 @@ package com.admin.service;
 import com.admin.bean.User;
 import com.admin.exception.GlobalException;
 import com.admin.mapper.UserMapper;
-import com.admin.redis.RedisService;
 import com.admin.redis.UserKey;
 import com.admin.result.CodeMsg;
 import com.admin.utils.MD5Util;

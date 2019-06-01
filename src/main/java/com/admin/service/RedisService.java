@@ -1,5 +1,6 @@
-package com.admin.redis;
+package com.admin.service;
 
+import com.admin.redis.KeyPrefix;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class RedisService {
 
     }
 
-    public <T> T get(KeyPrefix prefix,String key,Class<T> clazz){
+    public <T> T get(KeyPrefix prefix, String key, Class<T> clazz){
         Jedis jedis = null;
         try{
             jedis = jedisPool.getResource();
@@ -140,4 +141,18 @@ public class RedisService {
         }
     }
 
+    //减少值
+    public <T> long decr(KeyPrefix keyPrefix, String key) {
+       Jedis jedis = null;
+       try{
+           jedis = jedisPool.getResource();
+           //生成真正的key
+           String realKey = keyPrefix.getPrefix() + key;
+           return jedis.decr(realKey);
+       }finally {
+           if (jedis != null) {
+               jedis.close();
+           }
+       }
+    }
 }

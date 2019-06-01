@@ -1,13 +1,11 @@
 package com.admin.controller;
 
-import com.admin.bean.Goods;
-import com.admin.bean.OrderInfo;
 import com.admin.bean.SeckillOrder;
 import com.admin.bean.User;
 import com.admin.rabbitmq.MQSender;
 import com.admin.rabbitmq.SeckillMessage;
 import com.admin.redis.GoodsKey;
-import com.admin.redis.RedisService;
+import com.admin.service.RedisService;
 import com.admin.result.CodeMsg;
 import com.admin.result.Result;
 import com.admin.service.GoodsService;
@@ -15,7 +13,6 @@ import com.admin.service.OrderService;
 import com.admin.service.SeckillService;
 import com.admin.vo.GoodsVo;
 import com.google.common.util.concurrent.RateLimiter;
-import com.sun.org.apache.bcel.internal.classfile.Code;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -130,13 +127,13 @@ public class SeckillController implements InitializingBean {
      * 0 ： 排队中
      * @param model
      * @param user
-     * @param goods
+     * @param goodsId
      * @return
      */
     @RequestMapping(value = "/result",method = RequestMethod.GET)
     @ResponseBody
     public Result<Long> seckillResult(Model model,User user,
-                                      @RequestParam("goodsId")long goods){
+                                      @RequestParam("goodsId")long goodsId){
         model.addAttribute("user",user);
         if (user == null){
             return Result.error(CodeMsg.SESSION_ERROR);

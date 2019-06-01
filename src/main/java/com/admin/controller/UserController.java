@@ -1,7 +1,7 @@
 package com.admin.controller;
 
 import com.admin.bean.User;
-import com.admin.redis.RedisService;
+import com.admin.service.RedisService;
 import com.admin.result.Result;
 import com.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,7 @@ package com.admin.controller;
 
 import com.admin.bean.OrderInfo;
 import com.admin.bean.User;
-import com.admin.redis.RedisService;
+import com.admin.service.RedisService;
 import com.admin.result.CodeMsg;
 import com.admin.result.Result;
 import com.admin.service.GoodsService;
@@ -11,7 +11,6 @@ import com.admin.service.UserService;
 import com.admin.vo.GoodsVo;
 import com.admin.vo.OrderDetailVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
