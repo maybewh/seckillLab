@@ -99,7 +99,7 @@ public class SeckillController implements InitializingBean {
         SeckillMessage message = new SeckillMessage();
         message.setUser(user);
         message.setGoodsId(goodsId);
-        sender.send(message);
+        sender.sendSeckillMessage(message);
         return Result.success(0); //排队中
     }
 

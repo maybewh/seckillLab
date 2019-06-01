@@ -126,7 +126,7 @@ public class RedisService {
 
     }
 
-    private <T> T strToBean(String str,Class<T> clazz) {
+    public static  <T> T strToBean(String str,Class<T> clazz) {
         if (str == null || str.length() <= 0 || clazz == null) {
             return null;
         }
@@ -155,4 +155,6 @@ public class RedisService {
            }
        }
     }
+
+
 }

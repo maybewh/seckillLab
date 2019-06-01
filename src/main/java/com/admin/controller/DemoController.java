@@ -43,6 +43,27 @@ public class DemoController {
         return Result.success("Hello world");
     }
 
+    @RequestMapping("/mq/topic")
+    @ResponseBody
+    public Result<String> topicMq(){
+        mqSender.sendTopic("hello topic");
+        return Result.success("hello topic");
+    }
+
+    @RequestMapping("/mq/header")
+    @ResponseBody
+    public Result<String> header() {
+		mqSender.sendHeader("hello,imooc");
+        return Result.success("Hello，world");
+    }
+
+    @RequestMapping("/mq/fanout")
+    @ResponseBody
+    public Result<String> fanout() {
+		mqSender.sendFanout("hello,imooc");
+        return Result.success("Hello，world");
+    }
+
 /*    @RequestMapping("/redis/get")
     @ResponseBody
     public Result<Long> redisGet() {
